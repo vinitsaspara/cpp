@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+    int a, b, c;
+    float root1, root2, root3, root5, root4, real_part;
+    int delta;
+    cout << "Enter coefficient of quadratic equation :";
+    cin >> a;
+    cin >> b;
+    cin >> c;
+    delta = (b * b - (4 * a * c));
+    if (delta == 0)
+    {
+        root1 = (-b) / (2 * a);
+        cout << "Here quadretic equation have two real root and they are same :" << root1 << endl;
+    }
+    else if (delta > 0)
+    {
+        root2 = (-b + sqrt(delta)) / (2 * a);
+        root3 = (-b - sqrt(delta)) / (2 * a);
+        cout << "Here quadretic equation have two real root and they are :" << root2 << endl;
+        cout << "Here quadretic equation have two real root and they are :" << root3 << endl;
+    }
+    else
+    {
+        real_part = (-b) / (2 * a);
+        root2 = (sqrt(-delta)) / (2 * a);
+        root3 = (sqrt(-delta)) / (2 * a);
+        cout << "Here quadratic equation have two imagnery root and thay are : " << real_part << " + " << root2 << "i" << endl;
+        cout << "Here quadratic equation have two imagnery root and thay are : " << real_part << " - " << root3 << "i" << endl;
+    }
+    return 0;
+}
