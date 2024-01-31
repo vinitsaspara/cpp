@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+int fact(int);
+int fact(int num)
+{
+    if (num > 1)
+        return (num * fact(num - 1));
+}
+int main()
+{
+    int number, mul;
+    cout << "Enter a number :";
+    cin >> number;
+    mul = fact(number);
+    cout << "factorial of number is :" << mul;
+    return 0;
+}
