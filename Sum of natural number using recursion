@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+int natural_number(int);
+int natural_number(int num)
+{
+    int sum = num;
+    if (num != 0)
+    {
+        sum = sum + natural_number(num - 1);
+    }
+    return sum;
+}
+int main()
+{
+    int number, sum;
+    cout << "Enter a number :";
+    cin >> number;
+    sum = natural_number(number);
+    cout << "Sum of natural number is :" << sum;
+    return 0;
+}
