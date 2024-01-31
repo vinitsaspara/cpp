@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int number, flage = 1;
+    cout << "Enter a number :" << endl;
+    cin >> number;
+
+    for (int i = 2; i < number; i++)
+    {
+        if (number % i == 0)
+        {
+            flage = 2;
+            break;
+        }
+    }
+    if (flage == 1)
+        cout << number << " is prime number ";
+    else
+        cout << number << " is not prime number ";
+    return 0;
+}
