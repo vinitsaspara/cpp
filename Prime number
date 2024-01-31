@@ -20,3 +20,30 @@ int main()
         cout << number << " is not prime number ";
     return 0;
 }
+
+//Prime Number bitween interval:-
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int interval, flage, open, end;
+    cout << "Enter a interval :" << endl;
+    cin >> open;
+    cin >> end;
+    cout << "Prime Number searies is :" << endl;
+    for (int j = open; j <= end; j++)
+    {
+        flage = 1;
+        for (int i = 2; i < j; i++)
+        {
+            if (j % i == 0)
+            {
+                flage = 2;
+            }
+        }
+        if (flage == 1)
+            cout << j << " ";
+    }
+    return 0;
+}
