@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int digit(int);
+int digit(int num)
+{
+    int count = 0;
+    while (num > 0)
+    {
+        num % 10;
+        count++;
+        num = num / 10;
+    }
+    return (count);
+}
+int main()
+{
+    int number, last_digit, sum = 0;
+    int temp;
+    temp = digit(number);
+    cout << "Enter a binary number :";
+    cin >> number;
+    for (int i = 0; i < temp; i++)
+    {
+        last_digit = number % 10;
+        sum = sum + (last_digit * pow(2, i));
+        number = number / 10;
+    }
+    cout << "decimal number is :" << sum;
+    return 0;
+}
