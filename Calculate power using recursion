@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int times(int, int);
+int times(int num, int pow)
+{
+    if (pow > 1)
+    {
+        return (num * times(num, pow - 1));
+    }
+    else
+    {
+        return (num);
+    }
+}
+int main()
+{
+    int number;
+    int power, result;
+    cout << "Enter a number and its power : " << endl;
+    cin >> number >> power;
+    result = times(number, power);
+    cout << "Number is :" << number << " and"
+         << " number " << power << " time power is :" << result << endl;
+    return 0;
+}
