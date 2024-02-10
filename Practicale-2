@@ -95,3 +95,99 @@ int main()
     }
     return 0;
 }
+
+**********************************************************************************************************
+
+-------->passing one object and infinite time loop using :
+
+**********************************************************************************************************
+
+#include <iostream>
+using namespace std;
+
+class Employee
+{
+    int id;
+    char Employee_name[30];
+    char Qualification[30];
+    float Experience;
+    long long contact_number;
+
+public:
+    void setdata()
+    {
+        cout << "Enter your id:";
+        cin >> id;
+        cout << "Enter your name :";
+        fflush(stdin);
+        cin.getline(Employee_name, 30);
+        cout << "Enter your Qualification :";
+        cin.getline(Qualification, 30);
+        cout << "Enter your Experience :";
+        cin >> Experience;
+        cout << "Enter your Contact number :";
+        cin >> contact_number;
+    }
+    void putdata(Employee o4)
+    {
+        int ID;
+        cout << "Enter an Employee ID :";
+        cin >> ID;
+        cout << "---------------------------------------------" << endl;
+        if (ID == (o4.id))
+        {
+            cout << "Employee name :" << o4.Employee_name << endl;
+            cout << "Qualification :" << o4.Qualification << endl;
+            cout << "Experience    :" << o4.Experience << endl;
+            cout << "contact_number:" << o4.contact_number << endl;
+            cout << "---------------------------------------------" << endl;
+        }
+        else
+        {
+            cout << "**********************************************" << endl;
+            cout << "ERROR:ENTERED EMPLOYEE ID DOSE NOT EXIST" << endl;
+            cout << "**********************************************" << endl;
+        }
+    }
+};
+
+char detailes()
+{
+    char ch;
+    cout << "Press Y to get another Employee detail,Press N to exit :";
+    cin >> ch;
+    return ch;
+}
+
+int main()
+{
+    char ch1;
+    int Emp;
+    cout << "Enter total Employee :";
+    cin >> Emp;
+    Employee o[Emp], o1;
+    for (int i = 0; i < Emp; i++)
+    {
+        o[i].setdata();
+    }
+    for (int i = 0; i >= 0; i++)
+    {
+        if (i == 0)
+        {
+            o1.putdata(o[i]);
+        }
+        else
+        {
+            ch1 = detailes();
+            if (ch1 == 'y' || ch1 == 'Y')
+            {
+                o1.putdata(o[i]);
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+    return 0;
+}
