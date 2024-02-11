@@ -1,0 +1,165 @@
+#include <iostream>
+#include <iomanip>
+#include <cstring>
+using namespace std;
+
+class car
+{
+    char modal_name[20], fuel[20], transmission[10], airbag[5];
+    float price, mileage, tank_capacity;
+    int seat;
+
+public:
+    void input()
+    {
+        cout << "Enter car name :";
+        cin.getline(modal_name, 20);
+        cout << "Which type of fuel use in car :";
+        cin.getline(fuel, 20);
+        cout << "Enter car price(Lakhs) :";
+        cin >> price;
+        cout << "Enter car mileage(km/l) :";
+        cin >> mileage;
+        fflush(stdin);
+        cout << "Enter transmission :";
+        cin.getline(transmission, 10);
+        cout << "Enter tank capacity(Liters) :";
+        cin >> tank_capacity;
+        cout << "Enter Seating capacity :";
+        cin >> seat;
+        fflush(stdin);
+        cout << "Enter Airbag yes or no :";
+        cin.getline(airbag, 5);
+    }
+    void intro(car o[], int s)
+    {
+        int option;
+        cout << "WELCOME TO TATA MOTORS\n\n";
+        cout << "GET THE DETAILES AS PER YOUR PREFERENCE\n\n";
+        cout << "(1) Modal Name (2)Fuel Type (3)Price Range\n\n";
+        cout << "ENTER YOUR OPTION :";
+        cin >> option;
+        cout << "------------------------------------------------\n";
+        if (option == 1)
+        {
+            cout << "LIST OF TATA CARS\n";
+            int choose;
+            for (int i = 0; i < 7; i++)
+                cout << "(" << i + 1 << ")" << o[i].modal_name << "\t";
+            cout << "\n\n";
+            cout << "CHOOSE YOUR CAR TO GET DETAILS :";
+            cin >> choose;
+            for (int i = 0; i < 7; i++)
+            {
+                if (choose == (i + 1))
+                {
+                    cout << left << setw(10) << "Model" << setw(12) << "Fuel" << setw(10) << "Price" << setw(10) << "Mileage" << setw(12) << "Tranmission" << setw(15) << "Tank_capacity" << setw(17) << "Seating_capacity" << setw(10) << "Airbags";
+                    cout << right << setw(28) << "(Lakhs)" << setw(9) << "(Km/l)" << setw(26) << "(Liters)" << endl;
+                    cout << left << setw(10) << o[i].modal_name << setw(12) << o[i].fuel << setw(10) << o[i].price << setw(10) << o[i].mileage << setw(12) << o[i].transmission << setw(15) << o[i].tank_capacity << setw(17) << o[i].seat << setw(10) << o[i].airbag << endl;
+                }
+            }
+        }
+        else if (option == 2)
+        {
+            int choose1;
+            cout << "TATA MOTORS ARE AVAILABLE WITH FUEL OPTIONS\n\n";
+            cout << "(1)Petrol (2)Diesel (3)CNG (4) Electric\n\n";
+            cout << "ENTER YOUR FUEL PREFERENCE :";
+            cin >> choose1;
+            cout << "\n";
+            switch (choose1)
+            {
+            case 1:
+            {
+                cout << left << setw(10) << "Model" << setw(12) << "Fuel" << setw(10) << "Price" << setw(10) << "Mileage" << setw(12) << "Tranmission" << setw(15) << "Tank_capacity" << setw(17) << "Seating_capacity" << setw(10) << "Airbags";
+                cout << right << setw(28) << "(Lakhs)" << setw(9) << "(Km/l)" << setw(26) << "(Liters)" << endl;
+                for (int i = 0; i < 7; i++)
+                {
+                    if (strcmp(o[i].fuel, "petrol") == 0)
+                    {
+                        cout << left << setw(10) << o[i].modal_name << setw(12) << o[i].fuel << setw(10) << o[i].price << setw(10) << o[i].mileage << setw(12) << o[i].transmission << setw(15) << o[i].tank_capacity << setw(17) << o[i].seat << setw(10) << o[i].airbag << endl;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+            }
+            case 2:
+            {
+                cout << left << setw(10) << "Model" << setw(12) << "Fuel" << setw(10) << "Price" << setw(10) << "Mileage" << setw(12) << "Tranmission" << setw(15) << "Tank_capacity" << setw(17) << "Seating_capacity" << setw(10) << "Airbags";
+                cout << right << setw(28) << "(Lakhs)" << setw(9) << "(Km/l)" << setw(26) << "(Liters)" << endl;
+                for (int i = 0; i < 7; i++)
+                {
+                    if (strcmp(o[i].fuel, "diesel") == 0)
+                    {
+                        cout << left << setw(10) << o[i].modal_name << setw(12) << o[i].fuel << setw(10) << o[i].price << setw(10) << o[i].mileage << setw(12) << o[i].transmission << setw(15) << o[i].tank_capacity << setw(17) << o[i].seat << setw(10) << o[i].airbag << endl;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+            }
+            case 3:
+            {
+                cout << left << setw(10) << "Model" << setw(12) << "Fuel" << setw(10) << "Price" << setw(10) << "Mileage" << setw(12) << "Tranmission" << setw(15) << "Tank_capacity" << setw(17) << "Seating_capacity" << setw(10) << "Airbags";
+                cout << right << setw(28) << "(Lakhs)" << setw(9) << "(Km/l)" << setw(26) << "(Liters)" << endl;
+                for (int i = 0; i < 7; i++)
+                {
+                    if (strcmp(o[i].fuel, "cng") == 0)
+                    {
+                        cout << left << setw(10) << o[i].modal_name << setw(12) << o[i].fuel << setw(10) << o[i].price << setw(10) << o[i].mileage << setw(12) << o[i].transmission << setw(15) << o[i].tank_capacity << setw(17) << o[i].seat << setw(10) << o[i].airbag << endl;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+            }
+            case 4:
+            {
+                cout << left << setw(10) << "Model" << setw(12) << "Fuel" << setw(10) << "Price" << setw(10) << "Mileage" << setw(12) << "Tranmission" << setw(15) << "Tank_capacity" << setw(17) << "Seating_capacity" << setw(10) << "Airbags";
+                cout << right << setw(28) << "(Lakhs)" << setw(9) << "(Km/l)" << setw(26) << "(Liters)" << endl;
+                for (int i = 0; i < 7; i++)
+                {
+                    if (strcmp(o[i].fuel, "electric") == 0)
+                    {
+                        cout << left << setw(10) << o[i].modal_name << setw(12) << o[i].fuel << setw(10) << o[i].price << setw(10) << o[i].mileage << setw(12) << o[i].transmission << setw(15) << o[i].tank_capacity << setw(17) << o[i].seat << setw(10) << o[i].airbag << endl;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+            }
+            }
+        }
+        else
+        {
+            float choose2;
+            cout << "ENTER YOUR MAXIMUM AFFORDABLE RANG IN LAKHS :";
+            cin >> choose2;
+            cout << left << setw(10) << "Model" << setw(12) << "Fuel" << setw(10) << "Price" << setw(10) << "Mileage" << setw(12) << "Tranmission" << setw(15) << "Tank_capacity" << setw(17) << "Seating_capacity" << setw(10) << "Airbags";
+            cout << right << setw(28) << "(Lakhs)" << setw(9) << "(Km/l)" << setw(26) << "(Liters)" << endl;
+            for (int i = 0; i < 7; i++)
+            {
+                if (choose2 > o[i].price)
+                {
+                    cout << left << setw(10) << o[i].modal_name << setw(12) << o[i].fuel << setw(10) << o[i].price << setw(10) << o[i].mileage << setw(12) << o[i].transmission << setw(15) << o[i].tank_capacity << setw(17) << o[i].seat << setw(10) << o[i].airbag << endl;
+                }
+            }
+        }
+    }
+};
+
+int main()
+{
+    car o[7], o1;
+    for (int i = 0; i < 7; i++)
+    {
+        o[i].input();
+    }
+    o1.intro(o, 7);
+    return 0;
+}
