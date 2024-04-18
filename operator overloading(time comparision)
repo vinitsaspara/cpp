@@ -8,10 +8,11 @@ using namespace std;
 class time
 {
         int hour, min, sec;
-         int x, y;
+        int x, y;
+
 public:
         time() : hour(0), min(0), sec(0) {}
-        friend int calc(time &t1,time &t2);
+        friend int calc(time &t1, time &t2);
         void getdata()
         {
                 cout << "Enter hours : ";
@@ -28,58 +29,82 @@ public:
 
         void operator==(time &t)
         {
-               cout << "Time 1 : " <<  hour << ":" << min << ":" << sec << endl;
-                cout << "Time 2 :"<<  t.hour << ":" << t.min << ":" << t.sec << endl;
-                cout << "Both Time are Equval "  << endl;
+                cout << "Time 1 : " << hour << ":" << min << ":" << sec << endl;
+                cout << "Time 2 :" << t.hour << ":" << t.min << ":" << t.sec << endl;
+                cout << "Both Time are Equval " << endl;
         }
 
-        void operator > (time &t){
-                cout << "Time 1 : " <<  hour << ":" << min << ":" << sec << endl;
-                cout << "Time 2 :"<<  t.hour << ":" << t.min << ":" << t.sec << endl;
-                cout << "Time 1 is graterthan Time 2"  << endl;
+        void operator>(time &t)
+        {
+                cout << "Time 1 : " << hour << ":" << min << ":" << sec << endl;
+                cout << "Time 2 :" << t.hour << ":" << t.min << ":" << t.sec << endl;
+                cout << "Time 1 is graterthan Time 2" << endl;
         }
 
-        void operator < (time &t){
-                cout << "Time 1 : " <<  hour << ":" << min << ":" << sec << endl;
-                cout << "Time 2 :"<<  t.hour << ":" << t.min << ":" << t.sec << endl;
-                cout << "Time 1 is lessthan Time 2"  << endl;
+        void operator<(time &t)
+        {
+                cout << "Time 1 : " << hour << ":" << min << ":" << sec << endl;
+                cout << "Time 2 :" << t.hour << ":" << t.min << ":" << t.sec << endl;
+                cout << "Time 1 is lessthan Time 2" << endl;
         }
-
-
-        
+        int check()
+        {
+                if (hour > 24 || min > 60 || sec > 60)
+                {
+                        cout << "INVALID TIME " << endl;
+                        return 0;
+                }
+                else
+                        return 1;
+        }
 };
 
-int calc(time & t1,time & t2){
+int calc(time &t1, time &t2)
+{
         int x;
         int y;
         x = (t1.hour * 60) + (t1.min * 60) + t1.sec;
         y = ((t2.hour * 60) + (t2.min * 60) + t2.sec);
-        if(x<y)
-        return 1;
-        else if(x==y)
-        return 2;
+        if (x < y)
+                return 1;
+        else if (x == y)
+                return 2;
         else
-        return 3;
+                return 3;
 }
 
 int main()
 {
         time t4;
         time t5;
-        int z;
+        int z, a;
         t4.getdata();
+        a = t4.check();
         t5.getdata();
-        z=calc(t4,t5);
-        switch(z){
-                case 1:
-                t4 < t5;
+        a = t5.check();
+        z = calc(t4, t5);
+        switch (a)
+        {
+        case 0:
                 break;
-                case 2:
-                t4 == t5;
-                break;
-                case 3:
-                t4 > t5;
-                break;
+
+        case 1:
+        {
+                {
+                        switch (z)
+                        {
+                        case 1:
+                                t4 < t5;
+                                break;
+                        case 2:
+                                t4 == t5;
+                                break;
+                        case 3:
+                                t4 > t5;
+                                break;
+                        }
+                }
+        }
         }
         return 0;
 }
