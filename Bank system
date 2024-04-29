@@ -1,0 +1,159 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+class uco;
+class sbi
+{
+private:
+    long Ac_no, cif_no;
+    char name[20];
+    char Ac_type[20];
+    long long int mobail;
+    char ifsc[20];
+    char pan[20];
+
+public:
+    void input1();
+    void output1();
+    friend void compare(sbi s, uco u);
+};
+class uco
+{
+private:
+    long Ac_no, cif_no;
+    char name1[20];
+    char Ac_type[20];
+    long long int mobail;
+    char ifsc[20];
+    char pan[20];
+
+public:
+    void input2();
+    void output2();
+    friend void compare(sbi s, uco u);
+};
+void sbi::input1()
+{
+    cout << "Enter details of SBI bank : " << endl;
+    cout << "Enter your account number: ";
+    cin >> Ac_no;
+    cin.ignore(); // Ignore newline character left in the buffer
+    cout << "Enter your name: ";
+    cin.getline(name, 20);
+    cout << "Which type of account you have: ";
+    cin.getline(Ac_type, 20);
+    cout << "Enter your mobile number: ";
+    cin >> mobail;
+    cin.ignore(); // Ignore newline character left in the buffer
+    cout << "Enter your IFSC code: ";
+    cin.getline(ifsc, 20);
+    cout << "Enter your PAN number: ";
+    cin.getline(pan, 20);
+}
+
+void sbi ::output1()
+{
+    cout << endl
+         << endl;
+    cout << "SBI Bank Details :" << endl;
+    cout << "Account Number : " << Ac_no << endl;
+    cout << "Name : " << name << endl;
+    cout << "Account Type : " << Ac_type << endl;
+    cout << "Mobile Number : " << mobail << endl;
+    cout << "IFSC Code : " << ifsc << endl;
+    cout << "PAN Number :" << pan << endl
+         << endl;
+}
+
+void uco::input2()
+{
+    cout << "Enter details of UCO bank : " << endl;
+    cout << "Enter your account number: ";
+    cin >> Ac_no;
+    cin.ignore(); // Ignore newline character left in the buffer
+    cout << "Enter your name: ";
+    cin.getline(name1, 20);
+    cout << "Which type of account you have: ";
+    cin.getline(Ac_type, 20);
+    cout << "Enter your mobile number: ";
+    cin >> mobail;
+    cin.ignore(); // Ignore newline character left in the buffer
+    cout << "Enter your IFSC code: ";
+    cin.getline(ifsc, 20);
+    cout << "Enter your PAN number: ";
+    cin.getline(pan, 20);
+}
+
+void uco :: output2(){
+    cout << endl << endl;
+     cout << "UCO Bank Details :" << endl;
+        cout << "Account Number : " << Ac_no << endl;
+        cout << "Name : " << name1 << endl;
+        cout << "Account Type : " << Ac_type << endl;
+        cout << "Mobile Number : " << mobail << endl;
+        cout << "IFSC Code : " << ifsc << endl;
+        cout << "PAN Number :" << pan << endl
+             << endl;
+}
+
+void compare(sbi s, uco u)
+{
+    if (strcmp(s.name, u.name1) == 1)
+    {
+
+        cout << endl
+             << endl;
+        cout << "SBI Bank Details :" << endl;
+        cout << "Account Number : " << s.Ac_no << endl;
+        cout << "Name : " << s.name << endl;
+        cout << "Account Type : " << s.Ac_type << endl;
+        cout << "Mobile Number : " << s.mobail << endl;
+        cout << "IFSC Code : " << s.ifsc << endl;
+        cout << "PAN Number :" << s.pan << endl
+             << endl;
+        cout << "UCO Bank Details :" << endl;
+        cout << "Account Number : " << u.Ac_no << endl;
+        cout << "Name : " << u.name1 << endl;
+        cout << "Account Type : " << u.Ac_type << endl;
+        cout << "Mobile Number : " << u.mobail << endl;
+        cout << "IFSC Code : " << u.ifsc << endl;
+        cout << "PAN Number :" << u.pan << endl
+             << endl;
+    }
+    else
+    {
+        cout << "You have accounts in different banks." << endl;
+    }
+}
+int main()
+{
+    sbi s;
+    uco u;
+    int choice;
+    cout << "HELLO, WELCOME FOR BANK DETAILS" << endl;
+    cout << "(1) SBI   (2) UCO   (3) Both SBI and UCO" << endl;
+    cout << "ENTER YOUR CHOICE: ";
+    cin >> choice;
+    if (choice == 1)
+    {
+        s.input1();
+        s.output1();
+    }
+    else if (choice == 2)
+    {
+        u.input2();
+        u.output2();
+    }
+    else if (choice == 3)
+    {
+        s.input1();
+        u.input2();
+        compare(s, u);
+    }
+    else
+    {
+        cout << "Invalid choice!" << endl;
+        return 1;
+    }
+    return 0;
+}
